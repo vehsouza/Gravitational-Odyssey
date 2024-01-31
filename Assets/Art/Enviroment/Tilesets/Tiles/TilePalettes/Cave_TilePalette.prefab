@@ -1541,7 +1541,7 @@ GameObject:
   - component: {fileID: 324351920125994967}
   - component: {fileID: 6239067858192989996}
   m_Layer: 0
-  m_Name: TilesPalette
+  m_Name: Cave_TilePalette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
