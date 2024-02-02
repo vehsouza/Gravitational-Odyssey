@@ -64,7 +64,6 @@ public class SwitchGravity : MonoBehaviour
             player.TakeDownGravity();
             vfx.SetActive(true);
             switchingGravity = true;
-            player.isJumping = false;
 
             ChooseGravityDirection();
         }

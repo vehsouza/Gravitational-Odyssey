@@ -193,6 +193,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: House (Outside And Inside) Tileset_0
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c67f578ffddb2499351651307d7d10
+      internalID: 177765794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -204,6 +225,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      House (Outside And Inside) Tileset_0: 177765794
       door1: 2020252717
       door2: 1411054474
       door_1: 1465686486
