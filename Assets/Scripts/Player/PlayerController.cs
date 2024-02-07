@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Collider2D cl;
 
     [SerializeField] private float gravityValue;
@@ -84,7 +84,6 @@ public class PlayerController : MonoBehaviour
 
     private void Respawn()
     {
-        dead = false;
         levelLoader.ResetLevel();
     }
 }
