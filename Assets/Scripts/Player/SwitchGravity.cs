@@ -41,7 +41,10 @@ public class SwitchGravity : MonoBehaviour
 
     private void Update()
     {
-        ActiveZeroGravity();
+        if(!player.dead)
+        { 
+            ActiveZeroGravity();
+        }
     }
 
     private void ResetGravityAndArrowSprites()

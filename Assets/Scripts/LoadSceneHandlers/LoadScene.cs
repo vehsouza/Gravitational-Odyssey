@@ -1,18 +1,24 @@
+
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    public static void Load(int i)
+    public Animator transition;
+
+    [SerializeField] private float transitionTime = 1f;
+
+    public void Load(int i)
     {
-        SceneManager.LoadScene(i);
+        StartCoroutine(LoadLevel(i));
     }
 
-    public static void Load(string s)
+    IEnumerator LoadLevel(int levelIndex)
     {
-        SceneManager.LoadScene(s);
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(levelIndex);
     }
+
 }

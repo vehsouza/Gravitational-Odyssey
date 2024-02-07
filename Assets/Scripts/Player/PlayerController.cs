@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Collider2D cl;
 
     [SerializeField] private float gravityValue;
 
@@ -15,10 +16,20 @@ public class PlayerController : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private SfxHelper sfxHelper;
 
+    public bool hasKey;
+
+    [SerializeField] private float timeUntilRespawn = .2f;
+
+    public LevelLoader levelLoader;
+
+    public bool dead { get; private set; }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        cl = GetComponent<Collider2D>();
+        dead = false;
+        hasKey = false;
     }
 
     private void Update()
@@ -56,5 +67,24 @@ public class PlayerController : MonoBehaviour
             sfxHelper.PlayLandingSfx();
             anim.SetTrigger("Landing");
         }
+        if (collision.gameObject.CompareTag("Spike"))
+        {
+            Dead();
+        }
+    }
+
+    private void Dead()
+    {
+        anim.SetTrigger("Dead");
+        cl.enabled = false;
+        dead = true;
+        Invoke("Respawn", timeUntilRespawn);
+    }
+
+
+    private void Respawn()
+    {
+        dead = false;
+        levelLoader.ResetLevel();
     }
 }

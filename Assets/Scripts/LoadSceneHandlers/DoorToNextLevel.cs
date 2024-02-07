@@ -5,8 +5,10 @@ using UnityEngine;
 public class DoorToNextLevel : MonoBehaviour
 {
     [SerializeField] private int nextLevel;
-    [SerializeField] private GameObject wKeySprite;
+    [SerializeField] private GameObject eKeySprite;
     private bool canEnter;
+
+    [SerializeField] private LevelLoader levelLoader;
 
     private void Start()
     {
@@ -15,9 +17,9 @@ public class DoorToNextLevel : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W) && canEnter)
+        if(Input.GetKeyDown(KeyCode.E) && canEnter)
         {
-            LoadScene.Load(nextLevel);
+            levelLoader.LoadNextLevel();
         }
     }
 
@@ -26,7 +28,7 @@ public class DoorToNextLevel : MonoBehaviour
         if(other.GetComponent<PlayerController>())
         {
             canEnter = true;
-            wKeySprite.SetActive(true);
+            eKeySprite.SetActive(true);
         }
     }
 
@@ -35,8 +37,7 @@ public class DoorToNextLevel : MonoBehaviour
         if (other.GetComponent<PlayerController>())
         {
             canEnter = false;
-            wKeySprite.SetActive(false);
+            eKeySprite.SetActive(false);
         }
-
     }
 }
